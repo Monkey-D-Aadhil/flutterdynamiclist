@@ -1,7 +1,7 @@
 name: dynamiclist
-description: A new Flutter package project.
-version: 0.0.1
-homepage:
+description: Dynamic list pages for user convinient list and details forms.
+version: 0.0.4
+homepage: https://gitlab.com/FaazTechSolutions/flutter-ticket-library.git
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
@@ -24,7 +24,7 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/
+    - assets/assets/
 
   # To add assets to your package, add an assets section, like this:
   # assets:
