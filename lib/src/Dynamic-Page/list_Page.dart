@@ -48,7 +48,7 @@ class _listPageState extends State<listPage> {
       appBar: AppBar(
         title: Text(
           EntityTypeDescription,
-          style: TextStyle(color: Colors.green),
+          style: const TextStyle(color: Colors.green),
         ),
         actions: [
           IconButton(
@@ -56,7 +56,7 @@ class _listPageState extends State<listPage> {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => Dynamic_Form()));
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.add,
               color: primaryColor,
             ),
@@ -68,7 +68,6 @@ class _listPageState extends State<listPage> {
       body: RefreshIndicator(
         onRefresh: getForm,
         color: Colors.green,
-        child: Container(
           child: Column(
             children: [
               // const SizedBox(
@@ -104,17 +103,19 @@ class _listPageState extends State<listPage> {
               // const SizedBox(
               //   height: 20,
               // ),
-              Expanded(
+              SizedBox(
+                height: MediaQuery.of(context).size.height-222,
+                width: MediaQuery.of(context).size.width ,
                 child: ListView.builder(
                     // itemExtent: 150.0,
                     itemCount: FormData!.length,
                     itemBuilder: (context, index) {
                       final i = index;
                       final user = FormData[index];
-
+              
                       return Container(
                         color: Colors.grey[200],
-                        padding: EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: Card(
                           elevation: 4,
                           child: Padding(
@@ -128,7 +129,7 @@ class _listPageState extends State<listPage> {
                                     children: setDynamicField(
                                         FormFields, FormData, i),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 20.0,
                                   ),
                                   ElevatedButton(
@@ -168,15 +169,12 @@ class _listPageState extends State<listPage> {
                       );
                     }),
               ),
-              Positioned(
-                  bottom: 0,
-                  child: Pagination(
+              Pagination(
                     getPaginatedData: getFormData,
                     totalRecords: totalRecords,
-                  )),
+             )
             ],
           ),
-        ),
       ),
     );
   }
