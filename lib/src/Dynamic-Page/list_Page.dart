@@ -103,18 +103,15 @@ class _listPageState extends State<listPage> {
               // const SizedBox(
               //   height: 20,
               // ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height-222,
-                width: MediaQuery.of(context).size.width ,
+              Expanded(
                 child: ListView.builder(
                     // itemExtent: 150.0,
                     itemCount: FormData!.length,
                     itemBuilder: (context, index) {
                       final i = index;
                       final user = FormData[index];
-              
-                      return Container(
-                        color: Colors.grey[200],
+                
+                      return Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Card(
                           elevation: 4,
@@ -169,10 +166,14 @@ class _listPageState extends State<listPage> {
                       );
                     }),
               ),
+              
               Pagination(
                     getPaginatedData: getFormData,
                     totalRecords: totalRecords,
-             )
+             ),
+             const SizedBox(
+                                    height: 20.0,
+                                  ),
             ],
           ),
       ),

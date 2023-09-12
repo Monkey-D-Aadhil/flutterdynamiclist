@@ -24,6 +24,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 class _MyHomePageState extends State<MyHomePage> {
+   int myIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +32,27 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body:const listPage(EntityTypeId: 10404),
+      body:const listPage(EntityTypeId: 10404),         bottomNavigationBar: BottomNavigationBar(
+          onTap: (Index) {
+           setState(() {
+              myIndex = Index;
+           });
+          },
+          currentIndex: myIndex,
+          items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home,color:Colors.green),
+            label: 'Home',
+            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list,color:Colors.green),
+            label: 'Agent',
+            ),
+            BottomNavigationBarItem(
+            icon: Icon(Icons.list,color:Colors.green),
+            label: 'Individual Ticket',
+            ),
+         ]),
     );
   }
 }
