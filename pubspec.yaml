@@ -1,6 +1,6 @@
 name: dynamiclist
 description: Dynamic list pages for user convinient list and details forms.
-version: 0.0.6
+version: 0.0.7
 homepage: https://gitlab.com/FaazTechSolutions/flutter-ticket-library.git
 
 environment:
