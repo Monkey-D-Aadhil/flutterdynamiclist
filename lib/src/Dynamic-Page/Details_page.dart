@@ -66,115 +66,115 @@ class _Details_pageState extends State<Details_page> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           "Details",
           style: TextStyle(color: Colors.green),
         ),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.green, //change your color here
         ),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(5.0),
-              child: ListTile(
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(100.0),
-                  child: Image.asset(
-                    fitness,
-                    height: 100.0,
-                    width: 70.0,
+      body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(5.0),
+                child: ListTile(
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(100.0),
+                    child: Image.asset(
+                      fitness,
+                      height: 100.0,
+                      width: 70.0,
+                    ),
                   ),
-                ),
-                title: Container(
-                  padding: EdgeInsets.only(bottom: 5.0),
-                  child: Text(
-                    _Data[Titles["Field"]].toString(),
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  title: Container(
+                    padding: const EdgeInsets.only(bottom: 5.0),
+                    child: Text(
+                      _Data[Titles["Field"]].toString(),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-                subtitle: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  subtitle: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 5.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                                flex: 3,
+                                child: Text(_Data['LicenseNumber'].toString())),
+                            Expanded(
+                                flex: 4,
+                                child: Text(_Data['Email'].toString(),
+                                    overflow: TextOverflow.ellipsis)),
+                            Expanded(
+                                flex: 3,
+                                child: Text(
+                                  _Data['StatusId'].toString(),
+                                  style: const TextStyle(color: Colors.green),
+                                )),
+                          ],
+                        ),
+                      ),
+                      Row(
                         children: [
                           Expanded(
-                              flex: 3,
-                              child: Text(_Data['LicenseNumber'].toString())),
+                              flex: 5,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                    child: FaIcon(
+                                      FontAwesomeIcons.userGraduate,
+                                      size: 15,
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(_Data['City'].toString()),
+                                  ),
+                                ],
+                              )),
                           Expanded(
-                              flex: 4,
-                              child: Text(_Data['Email'].toString(),
-                                  overflow: TextOverflow.ellipsis)),
-                          Expanded(
-                              flex: 3,
-                              child: Text(
-                                _Data['StatusId'].toString(),
-                                style: TextStyle(color: Colors.green),
+                              flex: 5,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                                    child:const  FaIcon(
+                                      FontAwesomeIcons.globe,
+                                      size: 15,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 100,
+                                    child: Text(
+                                      _Data['Country'].toString(),
+                                      style: const TextStyle(
+                                          overflow: TextOverflow.ellipsis),
+                                    ),
+                                  ),
+                                ],
                               )),
                         ],
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                            flex: 5,
-                            child: Row(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                  child: FaIcon(
-                                    FontAwesomeIcons.userGraduate,
-                                    size: 15,
-                                  ),
-                                ),
-                                Container(
-                                  child: Text(_Data['City'].toString()),
-                                ),
-                              ],
-                            )),
-                        Expanded(
-                            flex: 5,
-                            child: Row(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                  child: FaIcon(
-                                    FontAwesomeIcons.globe,
-                                    size: 15,
-                                  ),
-                                ),
-                                Container(
-                                  width: 100,
-                                  child: Text(
-                                    _Data['Country'].toString(),
-                                    style: TextStyle(
-                                        overflow: TextOverflow.ellipsis),
-                                  ),
-                                ),
-                              ],
-                            )),
-                      ],
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                children: groupMethod(),
+              const SizedBox(
+                height: 20.0,
               ),
-            )
-          ],
-        ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  children: groupMethod(),
+                ),
+              )
+            ],
+          ),
       ),
     );
   }
@@ -207,7 +207,7 @@ class _Details_pageState extends State<Details_page> {
 
       List<Widget> Field = setGroupField(group[i].fields, _Data);
 
-      SizedBox _SizedBox = SizedBox(
+      SizedBox _SizedBox = const SizedBox(
         height: 30.0,
       );
 
@@ -223,7 +223,7 @@ class _Details_pageState extends State<Details_page> {
     List<Widget> _fieldList = [];
 
     for (Map field in fields!) {
-      SizedBox _SizedBox = SizedBox(
+      SizedBox _SizedBox = const SizedBox(
         height: 10.0,
       );
       Row _row = Row(
@@ -234,7 +234,7 @@ class _Details_pageState extends State<Details_page> {
             flex: 5,
             child: Text(
               field["Description"],
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
                   fontSize: 16.0),
@@ -244,7 +244,7 @@ class _Details_pageState extends State<Details_page> {
             flex: 5,
             child: Text(
               data[field["Description"]].toString(),
-              style: TextStyle(fontSize: 16.0),
+              style: const TextStyle(fontSize: 16.0),
             ),
           ),
         ],
